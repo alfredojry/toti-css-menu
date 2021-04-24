@@ -1,0 +1,253 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    font-family: sans-serif;
+    font-size: 62.5%; /* 10px */
+}
+
+
+body {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+
+
+nav {
+    width: 100%;
+    height: 10.0rem;
+    border-bottom: 0.1rem solid hsla(0,0%,51%,.3);
+    margin-bottom: 4.0rem;
+}
+
+.nav_container {
+    max-width: 132.0rem;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.menu_item + .menu_item {
+    margin-left: 2.1rem;
+}
+
+.menu_link {
+    color: #1f1f1f;
+    text-decoration: none;
+    font-size: 2.0rem;
+    font-weight: bold;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.4rem;
+
+    transition-property: background-color;
+    transition-duration: .3s;
+}
+
+.menu_link:hover {
+    background-color: rgba(0,0,0,.2);
+}
+
+#burger_button {
+    display: none;
+}
+
+main {
+    max-width: 132.0rem;
+    margin: auto;
+}
+.google-ads {
+    width: 100%;
+    height: 25.0rem;
+    background: hsla(0,0%,51%,.3);
+    margin-bottom: 4.0rem;
+}
+.google-ads img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+}
+.noticias {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "politica politica esportes bbb";
+}
+.politica {
+    grid-area: politica;
+    padding-right: 3.8rem;
+    color: #c4170c;
+}
+.esportes {
+    grid-area: esportes;
+    padding-right: 3.8rem;
+    padding-left: 3.8rem;
+    border-left: .1rem solid hsla(0,0%,51%,.3);
+    border-right: .1rem solid hsla(0,0%,51%,.3);
+    color: #06aa48;
+}
+.bbb {
+    grid-area: bbb;
+    padding-left: 3.8rem;
+    padding-right: 3.8rem;
+    color: #ec7d00;
+}
+
+
+.noticia {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+.noticia img {
+    display: block;
+    width: 100%;
+    height: 13.1rem;
+    object-fit: cover;
+    object-position: center;
+}
+.noticia.destaque {
+    font-size: 2.2rem;
+    line-height: 1.25;
+    letter-spacing: -.04em;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+}
+.noticia.comum {
+    display: flex;
+    margin-bottom: .8rem;
+}
+.noticia.comum::before {
+    content: "";
+    height: .5rem;
+    width: .5rem;
+    background: #909090;
+    display: inline-block;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.4em;
+    margin-right: .5rem;
+}
+
+.politica_destaque {
+    font-weight: bold;
+    padding-bottom: 2.4rem;
+}
+.politica_destaque .noticia.noticia.destaque {
+    font-size: 6.5rem;
+    margin-bottom: 2.4rem;
+}
+.politica_news {
+    display: flex;
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+    border-top: .1rem solid hsla(0,0%,51%,.3);
+}
+.politica_news .noticia {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+}
+
+.bbb div + div, 
+.esportes div + div {
+    margin-top: 4rem;
+}
+
+@media (max-width: 1000px) {
+    nav {
+        position: fixed;
+        background: white;
+        top: 0;
+        left: 0;
+    }
+    #burger_button {
+        display: block;
+        background-color: transparent;
+        width: 5rem;
+        height: 5rem;
+        border: .1rem solid rgba(0,0,0,.2);
+        border-radius: .4rem;
+    }
+    #burger_button div {
+        background-color: gray;
+        height: .8rem;
+        border-radius: .4rem;
+    }
+    #burger_button div + div {
+        margin-top: .3rem;
+    }
+
+    .menu {
+        position: fixed;
+        width: 100vw;
+        height: calc(100vh - 10rem);
+        top: 10rem;
+        left: 100%;
+        display: block;
+        padding: 2.1rem;
+        background: rgba(255,255,255,.8);
+        overflow-y: scroll;
+
+        transition-property: left;
+        transition-duration: .5s;
+        transition-timing-function: ease-in-out;
+    }
+
+    .menu.active {
+        left: 0;
+    }
+
+    .menu_item + .menu_item {
+        margin-left: 0;
+        margin-top: 3.4rem;
+    }
+
+
+    nav, 
+    main {
+        padding: 2.1rem
+    }
+
+    main {
+        margin-top: 10rem;
+    }
+    
+    .noticias,
+    .politica_news {
+        display: block;
+    }
+    .politica_destaque .noticia.noticia.destaque {
+        font-size: 3rem;
+    }
+    .politica,
+    .politica_news .noticia,
+    .esportes,
+    .bbb {
+        padding: 0;
+    }
+    .esportes {
+        border: none;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+    html {
+        font-size: 79.5%
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1366px) {
+    html {
+        font-size: 45.5%;
+    }
+}
